@@ -25,12 +25,12 @@ function toggleRoof() {
     isHidden = !isHidden
 
     if (isHidden) {
-        WA.room.hideLayer('AboveRoof1')
+        WA.room.hideLayer('Roof3')
         WA.room.hideLayer('Roof2')
         WA.room.hideLayer('Roof1')
         WA.room.hideLayer('Roof0')
     } else {
-        WA.room.showLayer('AboveRoof1')
+        WA.room.hideLayer('Roof3')
         WA.room.showLayer('Roof2')
         WA.room.showLayer('Roof1')
         WA.room.showLayer('Roof0')
