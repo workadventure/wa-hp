@@ -96,7 +96,7 @@ WA.onInit().then(() => {
 
     function zoneEntrance3HasAccess () {
         var count = parseInt(WA.player.state.videoEntranceSeen) + 1;
-        WA.player.state.saveVariable("videoEntranceSeen", count, {
+        WA.player.state.saveVariable("videoEntranceSeen", parseInt(count), {
           public: true,
           persist: true,
           ttl: 3600 * 3600,
@@ -121,7 +121,7 @@ WA.onInit().then(() => {
 
     function zoneForestHasAccess() {
         var count = parseInt(WA.player.state.videoChamberSeen) + 1;
-        WA.player.state.saveVariable("videoChamberSeen", count, {
+        WA.player.state.saveVariable("videoChamberSeen", parseInt(count), {
           public: true,
           persist: true,
           ttl: 3600 * 3600,
@@ -156,7 +156,7 @@ WA.onInit().then(() => {
     })
 
     
-    let zoneVideoTeam;
+    let zoneVideoTeam: any;
     WA.room.area.onEnter('zoneVideoTeam').subscribe(() => {
         zoneVideoTeam = WA.ui.displayActionMessage({
             message: "Press 'space' to watch video",
@@ -177,7 +177,7 @@ WA.onInit().then(() => {
         zoneVideoTeam.remove();
     })
     
-    let zoneVideoWow;
+    let zoneVideoWow: any;
     WA.room.area.onEnter('zoneVideoWow').subscribe(() => {
         zoneVideoWow = WA.ui.displayActionMessage({
             message: "Press 'space' to watch video",
@@ -199,7 +199,7 @@ WA.onInit().then(() => {
         zoneVideoWow.remove();
     })
 
-    let zoneVideoProject;
+    let zoneVideoProject: any;
     WA.room.area.onEnter('zoneVideoProject').subscribe(() => {
         zoneVideoProject = WA.ui.displayActionMessage({
             message: "Press 'space' to watch video",
@@ -221,7 +221,7 @@ WA.onInit().then(() => {
         zoneVideoProject.remove();
     })
 
-    let zoneVideoTools;
+    let zoneVideoTools: any;
     WA.room.area.onEnter('zoneVideoTools').subscribe(() => {
         zoneVideoTools = WA.ui.displayActionMessage({
             message: "To access training room, please watch all video in that room",
@@ -243,7 +243,7 @@ WA.onInit().then(() => {
         zoneVideoTools.remove();
     })
 
-    let zoneVideoFinance1;
+    let zoneVideoFinance1: any;
     WA.room.area.onEnter('zoneVideoFinance1').subscribe(() => {
         zoneVideoFinance1 = WA.ui.displayActionMessage({
             message: "Press 'space' to watch video",
@@ -263,7 +263,8 @@ WA.onInit().then(() => {
     WA.room.area.onLeave('zoneVideoFinance1').subscribe(() => {
         zoneVideoFinance1.remove();
     })
-    let zoneVideoFinance2;
+
+    let zoneVideoFinance2: any;
     WA.room.area.onEnter('zoneVideoFinance2').subscribe(() => {
         zoneVideoFinance2 = WA.ui.displayActionMessage({
             message: "Press 'space' to watch video",
@@ -284,7 +285,7 @@ WA.onInit().then(() => {
         zoneVideoFinance2.remove();
     })
 
-    let zoneVideoDeploy1;
+    let zoneVideoDeploy1: any;
     WA.room.area.onEnter('zoneVideoDeploy1').subscribe(() => {
         zoneVideoDeploy1 = WA.ui.displayActionMessage({
             message: "Press 'space' to watch video",
@@ -304,7 +305,7 @@ WA.onInit().then(() => {
     WA.room.area.onLeave('zoneVideoDeploy1').subscribe(() => {
         zoneVideoDeploy1.remove();
     })
-    let zoneVideoDeploy2;
+    let zoneVideoDeploy2: any;
     WA.room.area.onEnter('zoneVideoDeploy2').subscribe(() => {
         zoneVideoDeploy2 = WA.ui.displayActionMessage({
             message: "Press 'space' to watch video",
@@ -325,7 +326,7 @@ WA.onInit().then(() => {
         zoneVideoDeploy2.remove();
     })
 
-    let zoneVideoClusters1;
+    let zoneVideoClusters1: any;
     WA.room.area.onEnter('zoneVideoClusters1').subscribe(() => {
         zoneVideoClusters1 = WA.ui.displayActionMessage({
             message: "Press 'space' to watch video",
@@ -345,7 +346,7 @@ WA.onInit().then(() => {
     WA.room.area.onLeave('zoneVideoClusters1').subscribe(() => {
         zoneVideoClusters1.remove();
     })
-    let zoneVideoClusters2;
+    let zoneVideoClusters2: any;
     WA.room.area.onEnter('zoneVideoClusters2').subscribe(() => {
         zoneVideoClusters2 = WA.ui.displayActionMessage({
             message: "Press 'space' to watch video",
