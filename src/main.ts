@@ -74,7 +74,10 @@ WA.onInit().then(() => {
             }); 
         } else {
             zoneEntrance2 = WA.ui.displayActionMessage({
-                message: "<div style='text-align:center;'>Doors are open you can explore videos</div>"
+                message: "<div style='text-align:center;'>Doors are open you can explore videos</div>",
+                callback: function (): void {
+                    throw new Error("Function not implemented.");
+                }
             }); 
         }
     })
@@ -95,13 +98,16 @@ WA.onInit().then(() => {
     }
 
     function zoneEntrance3HasAccess () {
-        var count = parseInt(WA.player.state.videoEntranceSeen) + 1;
+        // @ts-ignore
+        let count = parseInt(WA.player.state.videoEntranceSeen) + 1;
+        // @ts-ignore
         WA.player.state.saveVariable("videoEntranceSeen", parseInt(count), {
           public: true,
           persist: true,
           ttl: 3600 * 3600,
           scope: "world",
         });
+        // @ts-ignore
         if(WA.player.state.videoEntranceSeen >= 4) {
             WA.room.hideLayer('Doors/doorZone3closed');
             WA.room.hideLayer('Doors/doorZone3closed2');
@@ -120,13 +126,16 @@ WA.onInit().then(() => {
     }
 
     function zoneForestHasAccess() {
-        var count = parseInt(WA.player.state.videoChamberSeen) + 1;
+        // @ts-ignore
+        let count = parseInt(WA.player.state.videoChamberSeen) + 1;
+        // @ts-ignore
         WA.player.state.saveVariable("videoChamberSeen", parseInt(count), {
           public: true,
           persist: true,
           ttl: 3600 * 3600,
           scope: "world",
         });
+        // @ts-ignore
         if(WA.player.state.videoChamberSeen >= 2) {
             WA.room.hideLayer('Doors/doorZone5closed');
             WA.room.showLayer('Doors/doorZone5open');
@@ -374,8 +383,5 @@ WA.onInit().then(() => {
     }).catch(e => console.error(e));
 
 }).catch(e => console.error(e));
-
-function listenDoor(door: string) {
-}
 
 export {};
