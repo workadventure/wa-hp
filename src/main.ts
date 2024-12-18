@@ -6,7 +6,6 @@ console.log('Script started successfully');
 
 // Waiting for the API to be ready
 WA.onInit().then(() => {
-    console.log('Scripting API ready');
     console.log('Player tags: ',WA.player.tags)
 
     WA.ui.actionBar.addButton({
@@ -57,11 +56,8 @@ WA.onInit().then(() => {
         zoneEntrance1.remove();
     })
 
-    let zoneEntrance2;
+    let zoneEntrance2: any;
     WA.room.area.onEnter('zoneEntrance2').subscribe(() => {
-        console.log("Enter halZone");
-        console.log("WA.player.state.zoneEntrance1Access");
-        console.log(WA.player.state.zoneEntrance1Access);
         if(!WA.player.state.zoneEntrance1Access) {
             zoneEntrance2 = WA.ui.displayActionMessage({
                 message: "<div style='text-align:center;'>Please find Isabellatrix and Dmitrydor (in the garden)\n <div style='font-size:8px;font-style:italic;'> and watch video</div></div>",
@@ -99,7 +95,6 @@ WA.onInit().then(() => {
     }
 
     function zoneEntrance3HasAccess () {
-        console.log(WA.player.state.videoEntranceSeen);
         var count = parseInt(WA.player.state.videoEntranceSeen) + 1;
         WA.player.state.saveVariable("videoEntranceSeen", count, {
           public: true,
@@ -107,7 +102,6 @@ WA.onInit().then(() => {
           ttl: 3600 * 3600,
           scope: "world",
         });
-        console.log("WA.player.state.videoEntranceSeen:"+WA.player.state.videoEntranceSeen);
         if(WA.player.state.videoEntranceSeen >= 4) {
             WA.room.hideLayer('Doors/doorZone3closed');
             WA.room.hideLayer('Doors/doorZone3closed2');
@@ -133,7 +127,6 @@ WA.onInit().then(() => {
           ttl: 3600 * 3600,
           scope: "world",
         });
-        console.log("WA.player.state.videoChamberSeen:"+WA.player.state.videoChamberSeen);
         if(WA.player.state.videoChamberSeen >= 2) {
             WA.room.hideLayer('Doors/doorZone5closed');
             WA.room.showLayer('Doors/doorZone5open');
