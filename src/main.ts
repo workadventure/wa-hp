@@ -30,7 +30,7 @@ WA.onInit().then(() => {
         castleMainEntranceAccess();
     }
 
-    let zoneEntrance1;
+    let zoneEntrance1: any;
     WA.room.area.onEnter('zoneEntrance1').subscribe(() => {
         zoneEntrance1 = WA.ui.displayActionMessage({
             message: "<div style='text-align:center;'>Press <svg width='20' height='10' viewBox='0 0 20 10' style='margin-right: 2px; margin-left: 2px; fill: white; border-radius: 2px; border: 1px solid white; padding: 2px; box-sizing: border-box; background-color: white;'><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' style='font-size: 10px; fill: black; font-weight: bold;'>SPACE</text></svg> to watch video<div style='font-size:8px;font-style:italic;'> and watch video</div></div>",
