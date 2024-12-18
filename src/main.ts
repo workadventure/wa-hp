@@ -36,7 +36,7 @@ WA.onInit().then(() => {
             callback: () => {
                 WA.ui.modal.closeModal();
                 WA.ui.modal.openModal({
-                    src: WA.state.loadVariable('urlIntro'),
+                    src: WA.state.loadVariable('urlIntro') as string,
                     allow: 'fullscreen',
                     title: 'Bienvenue',
                     allowApi: true,
@@ -64,7 +64,7 @@ WA.onInit().then(() => {
                 callback: () => {
                     WA.ui.modal.closeModal();
                     WA.ui.modal.openModal({
-                        src: WA.state.loadVariable('urlIntro'),
+                        src: WA.state.loadVariable('urlIntro') as string,
                         allow: 'fullscreen',
                         title: 'Bienvenue',
                         allowApi: true,
@@ -134,14 +134,14 @@ WA.onInit().then(() => {
     }
 
 
-    let zoneEntrance3;
+    let zoneEntrance3: any;
     WA.room.area.onEnter('zoneEntrance3').subscribe(() => {
         zoneEntrance3 = WA.ui.displayActionMessage({
             message: "To access training room, please watch all video in that room",
             callback: () => {
                 WA.ui.modal.closeModal();
                 WA.ui.modal.openModal({
-                    src: WA.state.loadVariable('urlIntro'),
+                    src: WA.state.loadVariable('urlIntro') as string,
                     allow: 'fullscreen',
                     title: 'Bienvenue',
                     allowApi: true,
@@ -163,7 +163,7 @@ WA.onInit().then(() => {
             callback: () => {
                 WA.ui.modal.closeModal();
                 WA.ui.modal.openModal({
-                    src: WA.state.loadVariable('urlVideoTeam'),
+                    src: WA.state.loadVariable('urlVideoTeam') as string,
                     allow: 'fullscreen',
                     title: 'Bienvenue',
                     allowApi: true,
@@ -184,7 +184,7 @@ WA.onInit().then(() => {
             callback: () => {
                 WA.ui.modal.closeModal();
                 WA.ui.modal.openModal({
-                    src: WA.state.loadVariable('urlVideoWow'),
+                    src: WA.state.loadVariable('urlVideoWow') as string,
                     allow: 'fullscreen',
                     title: 'Bienvenue',
                     allowApi: true,
@@ -206,7 +206,7 @@ WA.onInit().then(() => {
             callback: () => {
                 WA.ui.modal.closeModal();
                 WA.ui.modal.openModal({
-                    src: WA.state.loadVariable('urlVideoProject'),
+                    src: WA.state.loadVariable('urlVideoProject') as string,
                     allow: 'fullscreen',
                     title: 'Bienvenue',
                     allowApi: true,
@@ -228,7 +228,7 @@ WA.onInit().then(() => {
             callback: () => {
                 WA.ui.modal.closeModal();
                 WA.ui.modal.openModal({
-                    src: WA.state.loadVariable('urlVideoTools'),
+                    src: WA.state.loadVariable('urlVideoTools') as string,
                     allow: 'fullscreen',
                     title: 'Bienvenue',
                     allowApi: true,
@@ -250,7 +250,7 @@ WA.onInit().then(() => {
             callback: () => {
                 WA.ui.modal.closeModal();
                 WA.ui.modal.openModal({
-                    src: WA.state.loadVariable('urlVideoFinance1'),
+                    src: WA.state.loadVariable('urlVideoFinance1') as string,
                     allow: 'fullscreen',
                     title: 'Bienvenue',
                     allowApi: true,
@@ -270,7 +270,7 @@ WA.onInit().then(() => {
             callback: () => {
                 WA.ui.modal.closeModal();
                 WA.ui.modal.openModal({
-                    src: WA.state.loadVariable('urlVideoFinance2'),
+                    src: WA.state.loadVariable('urlVideoFinance2') as string,
                     allow: 'fullscreen',
                     title: 'Bienvenue',
                     allowApi: true,
@@ -291,7 +291,7 @@ WA.onInit().then(() => {
             callback: () => {
                 WA.ui.modal.closeModal();
                 WA.ui.modal.openModal({
-                    src: WA.state.loadVariable('urlVideoDeploy1'),
+                    src: WA.state.loadVariable('urlVideoDeploy1') as string,
                     allow: 'fullscreen',
                     title: 'Bienvenue',
                     allowApi: true,
@@ -311,7 +311,7 @@ WA.onInit().then(() => {
             callback: () => {
                 WA.ui.modal.closeModal();
                 WA.ui.modal.openModal({
-                    src: WA.state.loadVariable('urlVideoDeploy2'),
+                    src: WA.state.loadVariable('urlVideoDeploy2') as string,
                     allow: 'fullscreen',
                     title: 'Bienvenue',
                     allowApi: true,
@@ -332,7 +332,7 @@ WA.onInit().then(() => {
             callback: () => {
                 WA.ui.modal.closeModal();
                 WA.ui.modal.openModal({
-                    src: WA.state.loadVariable('urlVideoClusters1'),
+                    src: WA.state.loadVariable('urlVideoClusters1') as string,
                     allow: 'fullscreen',
                     title: 'Bienvenue',
                     allowApi: true,
@@ -352,7 +352,7 @@ WA.onInit().then(() => {
             callback: () => {
                 WA.ui.modal.closeModal();
                 WA.ui.modal.openModal({
-                    src: WA.state.loadVariable('urlVideoClusters2'),
+                    src: WA.state.loadVariable('urlVideoClusters2') as string,
                     allow: 'fullscreen',
                     title: 'Bienvenue',
                     allowApi: true,
