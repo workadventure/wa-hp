@@ -7,6 +7,19 @@ console.log('Script started successfully');
 // Waiting for the API to be ready
 WA.onInit().then(() => {
     console.log('Player tags: ',WA.player.tags)
+    if(WA.player.tags.includes('admin')) {
+        castleMainEntranceAccess();
+        zoneEntrance3HasAccess();
+        zoneForestHasAccess();
+        WA.room.hideLayer('Doors/doorZone4closed');
+        WA.room.showLayer('Doors/doorZone4open')
+    }
+    if(WA.player.tags.includes('chambers')) {
+        castleMainEntranceAccess();
+        zoneEntrance3HasAccess();
+        WA.room.hideLayer('Doors/doorZone4closed');
+        WA.room.showLayer('Doors/doorZone4open')
+    }
 
     WA.ui.actionBar.addButton({
         id: 'explore-btn',
@@ -74,10 +87,7 @@ WA.onInit().then(() => {
             }); 
         } else {
             zoneEntrance2 = WA.ui.displayActionMessage({
-                message: "<div style='text-align:center;'>Doors are open you can explore videos</div>",
-                callback: function (): void {
-                    throw new Error("Function not implemented.");
-                }
+                message: "<div style='text-align:center;'>Doors are open you can explore videos</div>"
             }); 
         }
     })
@@ -97,17 +107,14 @@ WA.onInit().then(() => {
         zoneEntrance3HasAccess();
     }
 
-    function zoneEntrance3HasAccess () {
-        // @ts-ignore
+    function zoneEntrance3HasAccess() {
         let count = parseInt(WA.player.state.videoEntranceSeen) + 1;
-        // @ts-ignore
         WA.player.state.saveVariable("videoEntranceSeen", parseInt(count), {
           public: true,
           persist: true,
           ttl: 3600 * 3600,
           scope: "world",
         });
-        // @ts-ignore
         if(WA.player.state.videoEntranceSeen >= 4) {
             WA.room.hideLayer('Doors/doorZone3closed');
             WA.room.hideLayer('Doors/doorZone3closed2');
@@ -126,16 +133,13 @@ WA.onInit().then(() => {
     }
 
     function zoneForestHasAccess() {
-        // @ts-ignore
         let count = parseInt(WA.player.state.videoChamberSeen) + 1;
-        // @ts-ignore
         WA.player.state.saveVariable("videoChamberSeen", parseInt(count), {
           public: true,
           persist: true,
           ttl: 3600 * 3600,
           scope: "world",
         });
-        // @ts-ignore
         if(WA.player.state.videoChamberSeen >= 2) {
             WA.room.hideLayer('Doors/doorZone5closed');
             WA.room.showLayer('Doors/doorZone5open');
@@ -146,7 +150,7 @@ WA.onInit().then(() => {
     let zoneEntrance3: any;
     WA.room.area.onEnter('zoneEntrance3').subscribe(() => {
         zoneEntrance3 = WA.ui.displayActionMessage({
-            message: "To access training room, please watch all video in that room",
+            message: "Before accessing the trainings, you have to make sure you watched all the videos about the Orga, the Project, the Ways of Working and the Tools",
             callback: () => {
                 WA.ui.modal.closeModal();
                 WA.ui.modal.openModal({
@@ -383,5 +387,6 @@ WA.onInit().then(() => {
     }).catch(e => console.error(e));
 
 }).catch(e => console.error(e));
+
 
 export {};
