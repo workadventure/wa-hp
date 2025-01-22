@@ -180,8 +180,6 @@ WA.onInit().then(() => {
 
     
     let zoneVideoTeam: any;
-    let modalVideoTeam: any;
-    let urlVideoTeam: any;
     WA.room.area.onEnter('zoneVideoTeam').subscribe(() => {
         zoneVideoTeam = WA.ui.displayActionMessage({
             message: "Press 'space' to watch video",
@@ -193,7 +191,7 @@ WA.onInit().then(() => {
         }); 
     })
     WA.room.area.onLeave('zoneVideoTeam').subscribe(() => {
-        WA.ui.modal.closeModal();
+        zoneVideoTeam.remove();
     })
     
     let zoneVideoWow: any;
