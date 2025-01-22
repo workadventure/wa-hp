@@ -15,7 +15,7 @@ WA.onInit().then(() => {
         WA.room.showLayer('Doors/doorZone4open')
     }
 
-    WA.room.onEnterLayer("Doors/doorZone2closed").subscribe(() => {
+    WA.room.onEnterLayer("myLayer").subscribe(() => {
         castleMainEntranceAccess();
         zoneEntrance3HasAccess();
         WA.room.hideLayer('Doors/doorZone4closed');
@@ -180,24 +180,20 @@ WA.onInit().then(() => {
 
     
     let zoneVideoTeam: any;
+    let modalVideoTeam: any;
+    let urlVideoTeam: any;
     WA.room.area.onEnter('zoneVideoTeam').subscribe(() => {
         zoneVideoTeam = WA.ui.displayActionMessage({
             message: "Press 'space' to watch video",
             callback: () => {
                 WA.ui.modal.closeModal();
-                WA.ui.modal.openModal({
-                    src: WA.state.loadVariable('urlVideoTeam') as string,
-                    allow: 'fullscreen',
-                    title: 'Bienvenue',
-                    allowApi: true,
-                    position: 'center',
-                });
+                WA.nav.openTab(WA.state.loadVariable('urlVideoTeam') as string);
                 zoneEntrance3HasAccess();
             }
         }); 
     })
     WA.room.area.onLeave('zoneVideoTeam').subscribe(() => {
-        zoneVideoTeam.remove();
+        WA.ui.modal.closeModal();
     })
     
     let zoneVideoWow: any;
@@ -205,14 +201,7 @@ WA.onInit().then(() => {
         zoneVideoWow = WA.ui.displayActionMessage({
             message: "Press 'space' to watch video",
             callback: () => {
-                WA.ui.modal.closeModal();
-                WA.ui.modal.openModal({
-                    src: WA.state.loadVariable('urlVideoWow') as string,
-                    allow: 'fullscreen',
-                    title: 'Bienvenue',
-                    allowApi: true,
-                    position: 'center',
-                });
+                WA.nav.openTab(WA.state.loadVariable('urlVideoWow') as string);
                 WA.room.hideLayer('DynamicLayers/anmVideoWow');
                 zoneEntrance3HasAccess();
             }
@@ -227,14 +216,7 @@ WA.onInit().then(() => {
         zoneVideoProject = WA.ui.displayActionMessage({
             message: "Press 'space' to watch video",
             callback: () => {
-                WA.ui.modal.closeModal();
-                WA.ui.modal.openModal({
-                    src: WA.state.loadVariable('urlVideoProject') as string,
-                    allow: 'fullscreen',
-                    title: 'Bienvenue',
-                    allowApi: true,
-                    position: 'center',
-                });
+                WA.nav.openTab(WA.state.loadVariable('urlVideoProject') as string);
                 WA.room.hideLayer('DynamicLayers/anmVideoProject');
                 zoneEntrance3HasAccess();
             }
@@ -249,14 +231,7 @@ WA.onInit().then(() => {
         zoneVideoTools = WA.ui.displayActionMessage({
             message: "To access training room, please watch all video in that room",
             callback: () => {
-                WA.ui.modal.closeModal();
-                WA.ui.modal.openModal({
-                    src: WA.state.loadVariable('urlVideoTools') as string,
-                    allow: 'fullscreen',
-                    title: 'Bienvenue',
-                    allowApi: true,
-                    position: 'center',
-                });
+                WA.nav.openTab(WA.state.loadVariable('urlVideoTools') as string);
                 WA.room.hideLayer('DynamicLayers/anmVideoTools');
                 zoneEntrance3HasAccess();
             }
