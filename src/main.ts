@@ -14,12 +14,13 @@ WA.onInit().then(() => {
         WA.room.hideLayer('Doors/doorZone4closed');
         WA.room.showLayer('Doors/doorZone4open')
     }
-    if(WA.player.tags.includes('chambers')) {
+
+    WA.room.onEnterLayer("Doors/doorZone2closed").subscribe(() => {
         castleMainEntranceAccess();
         zoneEntrance3HasAccess();
         WA.room.hideLayer('Doors/doorZone4closed');
         WA.room.showLayer('Doors/doorZone4open')
-    }
+    });
 
     WA.ui.actionBar.addButton({
         id: 'explore-btn',
