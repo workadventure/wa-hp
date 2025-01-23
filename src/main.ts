@@ -27,7 +27,7 @@ WA.onInit().then(() => {
         // @ts-ignore
         label: 'Explore map',
         callback: () => {
-            WA.nav.openCoWebSite("https://www.youtube.com/embed/E8gmARGvPlI?si=sc0G_NQZeU5nlHoJ");
+            WA.nav.openCoWebSite("https://workadventu.re/wp-content/uploads/2025/01/Map-Explore.pdf");
         }
     });
 
@@ -88,7 +88,7 @@ WA.onInit().then(() => {
             }); 
         } else {
             zoneEntrance2 = WA.ui.displayActionMessage({
-                message: "<div style='text-align:center;'>Doors are open you can explore videos</div>",
+                message: "<div style='text-align:center;'>Doors are open you can explore rooms</div>",
                 callback: function (): void {
                     throw new Error("Function not implemented.");
                 }
