@@ -160,7 +160,7 @@ WA.onInit().then(() => {
     let zoneEntrance3: any;
     WA.room.area.onEnter('zoneEntrance3').subscribe(() => {
         zoneEntrance3 = WA.ui.displayActionMessage({
-            message: "Before accessing the trainings, you have to make sure you watched all the videos about the Orga, the Project, the Ways of Working and the Tools",
+            message: "Before accessing the trainings, you have to make sure you explored the presentations of the Orga, WOW, Project and Tools’",
             callback: () => {
                 WA.ui.modal.closeModal();
                 WA.ui.modal.openModal({
