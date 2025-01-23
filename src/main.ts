@@ -15,7 +15,7 @@ WA.onInit().then(() => {
         WA.room.showLayer('Doors/doorZone4open')
     }
 
-    WA.room.onEnterLayer("myLayer").subscribe(() => {
+    WA.room.onEnterLayer("doorZone3closed").subscribe(() => {
         castleMainEntranceAccess();
         zoneEntrance3HasAccess();
         WA.room.hideLayer('Doors/doorZone4closed');
@@ -182,7 +182,7 @@ WA.onInit().then(() => {
     let zoneVideoTeam: any;
     WA.room.area.onEnter('zoneVideoTeam').subscribe(() => {
         zoneVideoTeam = WA.ui.displayActionMessage({
-            message: "Press 'space' to watch video",
+            message: "Press 'space' to open the link",
             callback: () => {
                 WA.ui.modal.closeModal();
                 WA.nav.openTab(WA.state.loadVariable('urlVideoTeam') as string);
@@ -197,7 +197,7 @@ WA.onInit().then(() => {
     let zoneVideoWow: any;
     WA.room.area.onEnter('zoneVideoWow').subscribe(() => {
         zoneVideoWow = WA.ui.displayActionMessage({
-            message: "Press 'space' to watch video",
+            message: "Press 'space' to open the link",
             callback: () => {
                 WA.nav.openTab(WA.state.loadVariable('urlVideoWow') as string);
                 WA.room.hideLayer('DynamicLayers/anmVideoWow');
@@ -212,7 +212,7 @@ WA.onInit().then(() => {
     let zoneVideoProject: any;
     WA.room.area.onEnter('zoneVideoProject').subscribe(() => {
         zoneVideoProject = WA.ui.displayActionMessage({
-            message: "Press 'space' to watch video",
+            message: "Press 'space' to open the link",
             callback: () => {
                 WA.nav.openTab(WA.state.loadVariable('urlVideoProject') as string);
                 WA.room.hideLayer('DynamicLayers/anmVideoProject');
@@ -227,7 +227,7 @@ WA.onInit().then(() => {
     let zoneVideoTools: any;
     WA.room.area.onEnter('zoneVideoTools').subscribe(() => {
         zoneVideoTools = WA.ui.displayActionMessage({
-            message: "To access training room, please watch all video in that room",
+            message: "Press 'space' to open the link",
             callback: () => {
                 WA.nav.openTab(WA.state.loadVariable('urlVideoTools') as string);
                 WA.room.hideLayer('DynamicLayers/anmVideoTools');
